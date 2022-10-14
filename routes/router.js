@@ -7,13 +7,13 @@ const userController = require("../controllers/userController");
 // });
 
 //userView
-route.get("/", userController.reactView);
-route.get("/signup", userController.reactView);
-route.get("/login", userController.reactView);
-route.get("/game", userController.reactView);
-route.get("/user-profile", userController.reactView);
-route.get("/admin", userController.reactView);
-route.get("/user-edit/:id", userController.reactView);
+// route.get("/", userController.reactView);
+// route.get("/signup", userController.reactView);
+// route.get("/login", userController.reactView);
+// route.get("/game", userController.reactView);
+// route.get("/user-profile", userController.reactView);
+// route.get("/admin", userController.reactView);
+route.get("/login", (req, res) => {res.render("login");});
 
 // API User
 route.post("/api/user", userController.register); // create new user

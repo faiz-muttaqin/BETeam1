@@ -14,17 +14,20 @@ const swaggerUI = require("swagger-ui-express");
 //routing to api documentation
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJSON));
 
-app.use(express.static(path.join(__dirname, "/view")));
+// app.use(express.static(path.join(__dirname, "/view")));
+
+app.use(express.static("public"));
+app.set("view engine", "html");
 
 //middleware
 dotenv.config({ path: "./config/config.env" });
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 7070;
 app.use(morgan("dev"));
 connectDB();
 
 // app.use(cors()); // agar API dapat diakses dari luar
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/", require("./routes/router"));
