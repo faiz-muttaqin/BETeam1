@@ -17,6 +17,13 @@ const path = require("path");
 // route.get("/admin", userController.reactView);
 route.get("/login", (req, res) => {res.sendFile(path.join(__dirname, "../public/login.html"));});
 route.get("/signup", (req, res) => {res.sendFile(path.join(__dirname, "../public/signup.html"));});
+route.get("/game", (req, res) => {res.sendFile(path.join(__dirname, "../public/game.html"));});
+route.get("/game/matching-images", (req, res) => {res.sendFile(path.join(__dirname, "../public/game/matching-images.html"));});
+route.get("/game/rock-paper-scrissors", (req, res) => {res.sendFile(path.join(__dirname, "../public/game/rock-paper-scrissors.html"));});
+route.get("/game/tictactoe", (req, res) => {res.sendFile(path.join(__dirname, "../public/game/tictactoe.html"));});
+route.get("/game/admin", (req, res) => {res.sendFile(path.join(__dirname, "../public/admin.html"));});
+route.get("/game/user-edit", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-edit.html"));});
+route.get("/game/user-profile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
 
 console.log(path.join(__dirname, "../public/login.html"))
 // API User
