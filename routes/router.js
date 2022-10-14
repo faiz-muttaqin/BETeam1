@@ -1,6 +1,8 @@
 const express = require("express");
+const { dirname } = require("path");
 const route = express.Router();
 const userController = require("../controllers/userController");
+const path = require("path");
 
 // route.get("/", (req, res) => {
 //   res.send("Akses /api-docs untuk cek API yang tersedia");
@@ -13,8 +15,10 @@ const userController = require("../controllers/userController");
 // route.get("/game", userController.reactView);
 // route.get("/user-profile", userController.reactView);
 // route.get("/admin", userController.reactView);
-route.get("/login", (req, res) => {res.render("login");});
+route.get("/login", (req, res) => {res.sendFile(path.join(__dirname, "../public/login.html"));});
+route.get("/signup", (req, res) => {res.sendFile(path.join(__dirname, "../public/signup.html"));});
 
+console.log(path.join(__dirname, "../public/login.html"))
 // API User
 route.post("/api/user", userController.register); // create new user
 route.get("/api/user", userController.getUser); // get all user
