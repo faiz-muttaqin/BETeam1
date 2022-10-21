@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[964],{8195:function(n,i,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/admin",function(){return u(5824)}])},5824:function(n,i,u){"use strict";u.r(i);var t=u(5893),_=function(){return(0,t.jsx)("div",{children:" ini admin "})};i.default=_}},function(n){n.O(0,[774,888,179],function(){return n(n.s=8195)}),_N_E=n.O()}]);
