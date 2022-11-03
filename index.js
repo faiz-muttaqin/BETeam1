@@ -10,6 +10,9 @@ const cookieParser = require("cookie-parser");
 const bodyparser = require("body-parser");
 const swaggerJSON = require("./game-openapi.json");
 const swaggerUI = require("swagger-ui-express");
+const multer = require("multer")
+const fs = require("fs")
+const imageHandling = require("./models/imageHandling")
 
 const http = require("http");
 const server = http.createServer(app);
@@ -35,14 +38,49 @@ app.use(morgan("dev"));
 connectDB();
 
 // app.use(cors()); // agar API dapat diakses dari luar
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/", require("./routes/router"));
 
+// image handling
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
 
+const upload = multer({ storage: storage });
 
+app.post("/image", upload.single("testImage"), (req, res) => {
+  const saveImage =  imageHandling({
+    title: req.body.title,
+    detail: req.body.detail,
+    image: {
+      data: fs.readFileSync("uploads/" + req.file.filename),
+      contentType: "image/png",
+    },
+    // route: req.body.route
+  });
+  saveImage
+    .save()
+    .then((res) => {
+      console.log("image is saved");
+    })
+    .catch((err) => {
+      console.log(err, "error has occur");
+    });
+    res.send('image is saved')
+});
+
+app.get('/image',async (req,res)=>{
+  const allData = await imageHandling.find()
+  res.json(allData)
+})
 //Mengggunakan Socket.IO
 const {
   userConnected,
@@ -83,7 +121,7 @@ io.on("connection", (socket) => {
       console.log(user);
       console.log("create Room Berhasil di trigger di IF, roomnya udah ada", "Emit: player-1-connected")
     }
-    
+
   });
 
   socket.on("join-room", ([roomId, userId]) => {
