@@ -189,7 +189,7 @@
           let userCookie = getCookie("user-data");
           let user = JSON.parse(getCookie("user-data")).user;
           let userid = JSON.parse(getCookie("user-data"))._id;
-          fetch(`/api/history`, {
+          fetch(`https://traditionalgame.herokuapp.com/api/history`, {
             method: "post",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify({
