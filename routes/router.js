@@ -27,9 +27,9 @@ route.get("/game/tictactoe", (req, res) => {res.sendFile(path.join(__dirname, ".
 // route.get("/game/admin", (req, res) => {res.sendFile(path.join(__dirname, "../public/admin.html"));});
 route.get("/user-edit", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-edit.html"));});
 route.get("/user-profile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
-route.get("/user-profile/editprofile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
-route.get("/user-profile/history", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
-route.get("/user-profile/summary", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
+route.get("/user-profile/editprofile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile/editprofile.html"));});
+route.get("/user-profile/history", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile/history.html"));});
+route.get("/user-profile/summary", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile/summary.html"));});
 
 console.log(path.join(__dirname, "../public/login.html"))
 // API User
