@@ -18,12 +18,18 @@ const path = require("path");
 route.get("/login", (req, res) => {res.sendFile(path.join(__dirname, "../public/login.html"));});
 route.get("/signup", (req, res) => {res.sendFile(path.join(__dirname, "../public/signup.html"));});
 route.get("/game", (req, res) => {res.sendFile(path.join(__dirname, "../public/game.html"));});
+route.get("/contact", (req, res) => {res.sendFile(path.join(__dirname, "../public/about.html"));});
+route.get("/about", (req, res) => {res.sendFile(path.join(__dirname, "../public/about.html"));});
+route.get("/blog", (req, res) => {res.sendFile(path.join(__dirname, "../public/about.html"));});
 route.get("/game/matching-images", (req, res) => {res.sendFile(path.join(__dirname, "../public/game/matching-images.html"));});
-route.get("/game/rock-paper-scrissors", (req, res) => {res.sendFile(path.join(__dirname, "../public/game/rock-paper-scrissors.html"));});
+route.get("/game/rpsbot.html", (req, res) => {res.sendFile(path.join(__dirname, "../public/rpsbot.html"));});
 route.get("/game/tictactoe", (req, res) => {res.sendFile(path.join(__dirname, "../public/game/tictactoe.html"));});
-route.get("/game/admin", (req, res) => {res.sendFile(path.join(__dirname, "../public/admin.html"));});
-route.get("/game/user-edit", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-edit.html"));});
-route.get("/game/user-profile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
+// route.get("/game/admin", (req, res) => {res.sendFile(path.join(__dirname, "../public/admin.html"));});
+route.get("/user-edit", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-edit.html"));});
+route.get("/user-profile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
+route.get("/user-profile/editprofile", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
+route.get("/user-profile/history", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
+route.get("/user-profile/summary", (req, res) => {res.sendFile(path.join(__dirname, "../public/user-profile.html"));});
 
 console.log(path.join(__dirname, "../public/login.html"))
 // API User
