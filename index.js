@@ -30,7 +30,7 @@ app.set("view engine", "html");
 
 //middleware
 dotenv.config({ path: "./config/config.env" });
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7070;
 app.use(morgan("dev"));
 connectDB();
 
