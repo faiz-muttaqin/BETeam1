@@ -30,12 +30,12 @@ app.set("view engine", "html");
 
 //middleware
 dotenv.config({ path: "./config/config.env" });
-const PORT = process.env.PORT || 7070;
+const PORT = process.env.PORT || 8885;
 app.use(morgan("dev"));
 connectDB();
 
 // app.use(cors()); // agar API dapat diakses dari luar
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: '*'}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -210,3 +210,23 @@ io.on("connection", (socket) => {
 app.listen(PORT, () => {
   console.log(`server running on http://localhost:${PORT}`);
 });
+const crypto = require('crypto');
+
+function generateDeviceID() {
+  const bytes = crypto.randomBytes(32);
+  const hexString = bytes.toString('hex').toUpperCase();
+  const groups = [
+    hexString.slice(0, 7),
+    hexString.slice(7, 14),
+    hexString.slice(14, 21),
+    hexString.slice(21, 28),
+    hexString.slice(28, 35),
+    hexString.slice(35, 42),
+    hexString.slice(42, 49),
+    hexString.slice(49, 56)
+  ];
+  return groups.join('-');
+}
+
+const deviceID = generateDeviceID();
+console.log(`Device ID: ${deviceID}`);
