@@ -206,27 +206,3 @@ io.on("connection", (socket) => {
   });
 });
 
-
-app.listen(PORT, () => {
-  console.log(`server running on http://localhost:${PORT}`);
-});
-const crypto = require('crypto');
-
-function generateDeviceID() {
-  const bytes = crypto.randomBytes(32);
-  const hexString = bytes.toString('hex').toUpperCase();
-  const groups = [
-    hexString.slice(0, 7),
-    hexString.slice(7, 14),
-    hexString.slice(14, 21),
-    hexString.slice(21, 28),
-    hexString.slice(28, 35),
-    hexString.slice(35, 42),
-    hexString.slice(42, 49),
-    hexString.slice(49, 56)
-  ];
-  return groups.join('-');
-}
-
-const deviceID = generateDeviceID();
-console.log(`Device ID: ${deviceID}`);
