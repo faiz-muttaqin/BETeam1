@@ -2,7 +2,7 @@ const path = require('path');
 const expressStatic = require('express-static');
 
 const outputPath = path.join(__dirname, 'public');
-const serverFile = path.join(__dirname, 'server.js');
+const serverFile = path.join(__dirname, 'index.js');
 
 expressStatic(serverFile, outputPath, (err) => {
   if (err) {
